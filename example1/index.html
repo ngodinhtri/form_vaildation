@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="main">
+      <form action="" method="post" class="form" id="myForm" novalidate>
+        <h3 class="heading">Register</h3>
+        <p class="desc">Code together</p>
+
+        <div class="form-group">
+          <label for="fullname" class="form-label">Full Name:</label>
+          <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            placeholder="Ex: John Smith"
+            class="form-control"
+            required
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Email:</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Ex: johnsmith@email.com"
+            class="form-control"
+            required
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Ex: John Smith"
+            class="form-control"
+            required
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password-confirmation" class="form-label"
+            >Confirm Password:</label
+          >
+          <input
+            type="password"
+            id="password-confirmation"
+            name="password-confirmation"
+            placeholder="Ex: John Smith"
+            class="form-control"
+            required
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="avatar" class="form-label">Avatar:</label>
+          <input
+            type="file"
+            id="avatar"
+            name="avatar"
+            class="form-control"
+            required
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="country" class="form-label">Country:</label>
+          <select name="country" id="country" class="form-control">
+            <option value="">-- Select country --</option>
+            <option value="Vietnam">Vietnam</option>
+            <option value="Canada">Canada</option>
+            <option value="Japan">Japan</option>
+          </select>
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="gender" class="form-label">Gender:</label>
+          <div class="form-genders">
+            <div class="form-genders__item">
+              <input type="radio" name="gender" value="male" id="male" />
+              <label for="male">Male</label>
+            </div>
+            <div class="form-genders__item">
+              <input type="radio" name="gender" value="female" id="female" />
+              <label for="female">Female</label>
+            </div>
+            <div class="form-genders__item">
+              <input type="radio" name="gender" value="other" id="other" />
+              <label for="other">Other</label>
+            </div>
+          </div>
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <button class="form-submit">Register</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="validatior.js"></script>
+    <script>
+      Validator({
+        form: "#myForm",
+        formGroup: ".form-group",
+        formMessage: ".form-message",
+        rules: [
+          Validator.isRequired("#fullname"),
+          Validator.isRequired("#email"),
+          Validator.isEmail("#email"),
+          Validator.isRequired("#password"),
+          Validator.minLength("#password", 6),
+          Validator.isRequired("#password-confirmation"),
+          Validator.isConfirmed(
+            "#password-confirmation",
+            "#password",
+            "Passwords are not matching"
+          ),
+          Validator.isRequired("#avatar"),
+          Validator.isRequired("#country"),
+          Validator.isRequired("input[name='gender']"),
+        ],
+        onSubmit: function (data) {
+          console.log(data);
+        },
+      });
+    </script>
+  </body>
+</html>

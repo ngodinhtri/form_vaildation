@@ -70,6 +70,7 @@ body {
 .form-control {
   border: 1px solid #b3b3b3;
   font-size: 1.4rem;
+  padding: 7px 10px;
 }
 
 .form-control:hover {
@@ -94,4 +95,10 @@ body {
 .form-group.invalid .form-message {
   color: #f33a58;
   font-size: 1.5rem;
+}
+
+.form-group .form-genders {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
