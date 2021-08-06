@@ -36,8 +36,8 @@ __example 1:__ [demo live](https://ngodinhtri.github.io/form_vaildation/example1
 
 __example 2:__ [demo live](https://ngodinhtri.github.io/form_vaildation/example2/index.html)
 ```html
+<!-- use in html file -->
 <script>
-  <!-- use in html file -->
     let myValidator = new Validator("#myForm");
     myValidator.onSubmit = (data) => {
       console.log(data);
